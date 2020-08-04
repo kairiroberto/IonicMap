@@ -29,14 +29,12 @@ export class Home2Page implements OnInit {
     private platform: Platform) { }
 
   async ngOnInit() {
-    // Since ngOnInit() is executed before `deviceready` event,
-    // you have to wait the event.
     await this.platform.ready();
     await this.loadMap();
   }
 
   loadMap() {
-    
+
     this.map = GoogleMaps.create('map', {
       camera: {
         target: {
