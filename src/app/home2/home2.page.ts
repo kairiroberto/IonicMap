@@ -10,7 +10,9 @@ import {
   GoogleMapsEvent,
   Marker,
   GoogleMapsAnimation,
-  MyLocation
+  MyLocation,
+  Environment,
+  GoogleMapOptions
 } from '@ionic-native/google-maps';
 
 @Component({
@@ -35,16 +37,23 @@ export class Home2Page implements OnInit {
 
   loadMap() {
 
-    this.map = GoogleMaps.create('map', {
-      camera: {
-        target: {
-          lat: 43.0741704,
-          lng: -89.3809802
-        },
-        zoom: 18,
-        tilt: 30
-      }
+    Environment.setEnv({
+      'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyDTkbMG--FC7ztvJ6dchdpa3IE2O-6H6kM',
+      'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyDTkbMG--FC7ztvJ6dchdpa3IE2O-6H6kM'
     });
+
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+         target: {
+           lat: 43.0741904,
+           lng: -89.3809802
+         },
+         zoom: 18,
+         tilt: 30
+       }
+    };
+
+    this.map = GoogleMaps.create('map_canvas', mapOptions);
 
   }
 
