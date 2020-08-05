@@ -10,6 +10,8 @@ import { Home2Page } from './home2.page';
 
 import { GoogleMaps } from '@ionic-native/google-maps';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx'
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +19,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     IonicModule,
     Home2PageRoutingModule
   ],
-  providers: [GoogleMaps],
+  providers: [GoogleMaps, Geolocation],
   declarations: [Home2Page]
 })
 export class Home2PageModule {}
